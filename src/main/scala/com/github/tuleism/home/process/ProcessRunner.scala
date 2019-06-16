@@ -12,7 +12,7 @@ object ProcessRunner {
 
     ZIO(Process(fullCommand).run(logger)).flatMap { processHandle =>
       effectBlocking(processHandle.exitValue())
-        .map((logger.errs, _))
+        .map((logger.outs, logger.errs, _))
         .onInterrupt {
           ZIO(processHandle.destroy()).orDie
         }
