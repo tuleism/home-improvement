@@ -9,6 +9,6 @@ import scalaz.zio.blocking.Blocking
 object FFMPEG {
 
   def convertVideoFromPlaylist(m3uURI: URI, output: Path): TaskR[Blocking, ProcessResult] = {
-    ProcessRunner.run(s"ffmpeg -i $m3uURI -c copy $output")
+    ProcessRunner.run(Seq("ffmpeg", "-i", m3uURI.toString, "-c", "copy", output.toString))
   }
 }

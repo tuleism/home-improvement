@@ -29,12 +29,16 @@ scalacOptions ++= Seq(
   "-Ywarn-value-discard" // Warn when non-Unit expression results are unused.
 )
 
+val circeVersion = "0.10.0"
 val seleniumVersion = "3.141.59"
 
 libraryDependencies ++= Seq(
-  "org.jsoup" % "jsoup" % "1.12.1",
-  "org.scalaz" %% "scalaz-zio" % "1.0-RC5",
-  "org.typelevel" %% "cats-core" % "1.6.0",
+  "org.jsoup"               % "jsoup"                  % "1.12.1",
+  "org.scalaz"              %% "scalaz-zio"            % "1.0-RC5",
+  "org.typelevel"           %% "cats-core"             % "1.6.0",
+  "io.circe"                %% "circe-core"            % circeVersion,
+  "io.circe"                %% "circe-generic"         % circeVersion,
+  "io.circe"                %% "circe-parser"          % circeVersion,
   "org.seleniumhq.selenium" % "selenium-chrome-driver" % seleniumVersion,
-  "org.seleniumhq.selenium" % "selenium-support" % seleniumVersion
+  "org.seleniumhq.selenium" % "selenium-support"       % seleniumVersion
 )

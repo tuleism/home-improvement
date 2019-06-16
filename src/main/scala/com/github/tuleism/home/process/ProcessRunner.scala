@@ -7,7 +7,7 @@ import scala.sys.process.Process
 
 object ProcessRunner {
 
-  def run(fullCommand: String): TaskR[Blocking, ProcessResult] = {
+  def run(fullCommand: Seq[String]): TaskR[Blocking, ProcessResult] = {
     val logger = new ProcessLogger()
 
     ZIO(Process(fullCommand).run(logger)).flatMap { processHandle =>

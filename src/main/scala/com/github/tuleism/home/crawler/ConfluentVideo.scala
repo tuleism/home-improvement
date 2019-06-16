@@ -42,7 +42,7 @@ object ConfluentVideo extends App {
         } yield mapping
       }
       .flatMap { mapping =>
-        VideoDownloader.downloadMultiple(mapping, "/run/media/tule/Elements/courses/talks/confluent/london2019")
+        VideoDownloader.downloadMultiple(mapping, "/run/media/tule/Elements/courses/talks/confluent")
       }
       .map(_ => 0)
       .orDie
